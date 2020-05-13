@@ -4,11 +4,8 @@ public class Ingredient {
 
 	private String name;
 
-	public Ingredient() {
-	}
-
 	public Ingredient(String name) {
-		this.setName(name);
+		setName(name);
 	}
 
 	public String getName() {
