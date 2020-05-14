@@ -7,19 +7,21 @@ public class Recipe {
 
 	private String name;
 	private ArrayList<Category> categories;
+	private ArrayList<RecipeIngredient> ingredients;
 	private String directions;
 	private Time preparationTime;
 	private Time cookTime;
 	private int servings;
 
-	public Recipe(String name, ArrayList<Category> categories, String directions, Time preparationTime, Time cookTime,
+	public Recipe(String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, Time preparationTime, Time cookTime,
 			int servings) {
-		this.name = name;
-		this.categories = categories;
-		this.directions = directions;
-		this.preparationTime = preparationTime;
-		this.cookTime = cookTime;
-		this.servings = servings;
+		setName(name);
+		setCategories(categories);
+		setIngredients(ingredients);
+		setDirections(directions);
+		setPreparationTime(preparationTime);
+		setCookTime(cookTime);
+		setServings(servings);
 	}
 
 	public String getName() {
@@ -36,6 +38,14 @@ public class Recipe {
 
 	public void setCategories(ArrayList<Category> categories) {
 		this.categories = categories;
+	}
+	
+	public ArrayList<RecipeIngredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(ArrayList<RecipeIngredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 	public String getDirections() {
