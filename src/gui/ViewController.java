@@ -9,7 +9,7 @@ public class ViewController {
 	private Button findRecipes;
 	@FXML
 	public void onFindRecipesAction() {
-		System.out.println("RECEITAS:");
+		System.out.println("Hello World");
 	}
 
 }
