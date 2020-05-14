@@ -1,13 +1,30 @@
 package model.entities;
 
-import java.sql.Time;
-import java.util.ArrayList;
+public class PersonalRecipe extends Recipe {
 
-public class PersonalRecipe extends Recipe{
+	public PersonalRecipe(Recipe recipe) {
+		super(recipe.getName(), recipe.getCategories(), recipe.getIngredients(), recipe.getDirections(), recipe.getPreparationTime(),
+				recipe.getCookTime(), recipe.getServings());
+	}
 
-	public PersonalRecipe(String name, ArrayList<Category> categories, String directions, Time preparationTime,
-			Time cookTime, int servings) {
-		super(name, categories, directions, preparationTime, cookTime, servings);
+	public void addIngredient(Ingredient ingredient, float amount, Unit unit) {
+		getIngredients().add(new RecipeIngredient(ingredient, amount, unit));
+	}
+
+	public void removeIngredient(String name) {
+		getIngredients().removeIf(i -> (i.getIngredient().getName().equals(name)));
+	}
+
+	public void addCategory(String category) {
+		getCategories().add(new Category(category));
+	}
+
+	public void removeCategory(String category) {
+		getCategories().removeIf(c  -> (c.getName().equals(category)));
+	}
+	
+	public void editDirections(String directions) {
+		setDirections(directions);
 	}
 
 }
