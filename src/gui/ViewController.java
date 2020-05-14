@@ -10,6 +10,8 @@ public class ViewController {
 	@FXML
 	public void onFindRecipesAction() {
 		System.out.println("Hello World");
+		System.out.println("Segunda alteracao");
+
 	}
 
 }
