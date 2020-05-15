@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <children>
       <Label layoutX="119.0" layoutY="38.0" text="Welcome to CookDash">
          <font>
@@ -13,5 +13,6 @@
          </font>
       </Label>
       <Button fx:id="findRecipes" layoutX="211.0" layoutY="187.0" mnemonicParsing="false" onAction="#onFindRecipesAction" text="Find Recipe" />
+      <Button fx:id="showRecipes" layoutX="206.0" layoutY="138.0" mnemonicParsing="false" onAction="#onShowRecipesAction" text="Show Recipes" />
    </children>
 </AnchorPane>
