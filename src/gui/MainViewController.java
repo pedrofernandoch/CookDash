@@ -22,23 +22,5 @@ public class MainViewController {
 	
 	@FXML
 	private Button showRecipes;
-	@FXML	
-	public void onShowRecipesAction() {
-		Connection conn = null;
-		Statement st = null;
-		ResultSet rs = null;
-		try {
-			conn = SQLiteConnection.getConnection();
-			st = conn.createStatement();
-			rs = st.executeQuery("SELECT * FROM recipes");
-			
-			while(rs.next()) {
-				System.out.println(rs.getString("name")+ ", " + rs.getString("directions"));
-			}
-		}
-		catch(SQLException e){
-			e.printStackTrace();
-		}
-	}
 
 }
