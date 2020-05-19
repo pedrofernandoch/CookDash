@@ -1,18 +1,9 @@
 package model.entities;
 
-public class Unit {
-
-	private String name;
+public class Unit extends Item {
 
 	public Unit(String name) {
-		setName(name);
+		super(name);
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 }

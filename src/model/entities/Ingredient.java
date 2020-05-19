@@ -1,19 +1,9 @@
 package model.entities;
 
-public class Ingredient {
-
-	private String name;
+public class Ingredient extends Item {
 
 	public Ingredient(String name) {
-		setName(name);
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		super(name);
 	}
 
 }

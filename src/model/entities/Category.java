@@ -1,18 +1,9 @@
 package model.entities;
 
-public class Category {
-
-	private String name;
+public class Category extends Item{
 
 	public Category(String name) {
-		setName(name);
+		super(name);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 }
