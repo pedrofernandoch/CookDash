@@ -1,17 +1,20 @@
 package gui;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 import db.SQLiteConnection;
 import gui.util.Alerts;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 
-public class MainViewController {
+public class MainViewController implements Initializable{
 
 	@FXML
 	private Button findRecipes;
@@ -40,6 +43,11 @@ public class MainViewController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
 	}
 
 }
