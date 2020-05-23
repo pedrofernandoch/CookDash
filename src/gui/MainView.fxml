@@ -14,5 +14,7 @@
       </Label>
       <Button fx:id="findRecipes" layoutX="211.0" layoutY="187.0" mnemonicParsing="false" onAction="#onFindRecipesAction" text="Find Recipe" />
       <Button fx:id="showRecipes" layoutX="206.0" layoutY="138.0" mnemonicParsing="false" onAction="#onShowRecipesAction" text="Show Recipes" />
+      <Button fx:id="showRecipes" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#createDB" text="Create DB" />
+      <Button fx:id="showRecipes" layoutX="220.0" layoutY="300.0" mnemonicParsing="false" onAction="#showAllTables" text="showAllTables" />
    </children>
 </AnchorPane>
