@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+<AnchorPane prefHeight="553.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <children>
-      <Label layoutX="119.0" layoutY="38.0" text="Welcome to CookDash">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Button fx:id="findRecipes" layoutX="211.0" layoutY="187.0" mnemonicParsing="false" onAction="#onFindRecipesAction" text="Find Recipe" />
-      <Button fx:id="showRecipes" layoutX="206.0" layoutY="138.0" mnemonicParsing="false" onAction="#onShowRecipesAction" text="Show Recipes" />
-      <Button fx:id="showRecipes" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#createDB" text="Create DB" />
-      <Button fx:id="showRecipes" layoutX="220.0" layoutY="300.0" mnemonicParsing="false" onAction="#showAllTables" text="showAllTables" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff0ae" height="439.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="784.0" />
+      <Button fx:id="findRecipes" layoutX="125.0" layoutY="123.0" mnemonicParsing="false" onAction="#onFindRecipesAction" text="Find Recipe" />
+      <Button fx:id="showRecipes" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" onAction="#onShowRecipesAction" text="Show Recipes" />
+      <Button fx:id="showRecipes" layoutX="231.0" layoutY="123.0" mnemonicParsing="false" onAction="#createDB" text="Create DB" />
+      <Button fx:id="showRecipes" layoutX="326.0" layoutY="123.0" mnemonicParsing="false" onAction="#showAllTables" text="showAllTables" />
+      <ImageView fitHeight="114.0" fitWidth="424.0" layoutX="180.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/CookDash.png" />
+         </image>
+      </ImageView>
+      <ScrollBar layoutX="770.0" layoutY="114.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="14.0" />
    </children>
 </AnchorPane>
