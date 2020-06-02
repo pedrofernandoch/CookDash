@@ -21,13 +21,13 @@
             <Insets left="10.0" top="5.0" />
          </padding>
       </Label>
-      <Pane prefHeight="327.0" prefWidth="600.0">
+      <Pane prefHeight="350.0" prefWidth="600.0">
          <children>
             <CheckBox layoutX="27.0" layoutY="77.0" mnemonicParsing="false" text="Vegano" />
             <CheckBox layoutX="27.0" layoutY="103.0" mnemonicParsing="false" text="Diabético" />
-            <TableView layoutX="448.0" layoutY="55.0" prefHeight="257.0" prefWidth="152.0">
+            <TableView fx:id="tableViewIngredients" layoutX="402.0" layoutY="87.0" prefHeight="164.0" prefWidth="172.0">
               <columns>
-                <TableColumn prefWidth="159.20001220703125" text="Ingredientes Adicionados" />
+                <TableColumn fx:id="tableColumnIngredient" maxWidth="1.7976931348623157E308" prefWidth="171.20001220703125" text="Ingredients" />
               </columns>
             </TableView>
             <Label layoutX="22.0" layoutY="153.0" text="Ingredient">
@@ -35,7 +35,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="btAdd" layoutX="285.0" layoutY="149.0" minWidth="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="30.0" style="-fx-background-color: green;" text="+" textFill="WHITE">
+            <Button fx:id="btAdd" layoutX="285.0" layoutY="149.0" minWidth="30.0" mnemonicParsing="false" onAction="#onBtAddAction" prefHeight="34.0" prefWidth="30.0" style="-fx-background-color: green;" text="+" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
