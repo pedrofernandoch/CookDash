@@ -62,8 +62,10 @@ public class MainViewController implements Initializable {
 			Scene mainScene = SplashViewController.getMainScene();
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 			
-			Node mainMenu = mainVBox.getChildren().get(0);
+			Node logo = mainVBox.getChildren().get(0);
+			Node mainMenu = mainVBox.getChildren().get(1);
 			mainVBox.getChildren().clear();
+			mainVBox.getChildren().add(logo);
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 		}
