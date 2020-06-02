@@ -16,7 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MainViewController implements Initializable {
+public class MainViewController {
 	
 	@FXML
 	private MenuItem createNewRecipe;
@@ -48,11 +48,6 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void onFavoritesAction() {
 		loadView("/gui/FavoritesView.fxml");
-	}
-	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-	
 	}
 	
 	private synchronized void loadView(String absoluteName) {
