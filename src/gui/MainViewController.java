@@ -13,12 +13,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 public class MainViewController implements Initializable {
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
 
-	// Alerts.showAlert("Alert title", "Alert header", "Alert content",
+}
+//Alerts.showAlert("Alert title", "Alert header", "Alert content",
 	// AlertType.INFORMATION);
 
-	@FXML
-	public void createDB() {
+	//COLOCAR NA MAIN OU NO CONNECTOR DO DB
+	/*public void createDB() {
 		Connection conn = null;
 		Statement st = null;
 		try {
@@ -64,11 +70,4 @@ public class MainViewController implements Initializable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		createDB();
-	}
-
-}
+	}*/
