@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="553.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff0ae" height="439.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="784.0" />
-      <ImageView fitHeight="114.0" fitWidth="424.0" layoutX="180.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/CookDash.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="102.0" layoutY="434.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="156.0" text="Create new Recipe" />
-      <CheckBox layoutX="52.0" layoutY="202.0" mnemonicParsing="false" text="Vegan" />
-      <CheckBox layoutX="52.0" layoutY="227.0" mnemonicParsing="false" text="Diabetes" />
-      <CheckBox layoutX="59.0" layoutY="251.0" mnemonicParsing="false" text="Hypertension" />
-      <TextField layoutX="316.0" layoutY="263.0" prefHeight="26.0" prefWidth="252.0" />
-      <Label layoutX="226.0" layoutY="267.0" prefHeight="22.0" prefWidth="89.0" text="Ingredient">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff3a" height="22.0" layoutX="585.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff3a" height="22.0" layoutX="585.0" layoutY="265.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
-      <Button layoutX="391.0" layoutY="321.0" mnemonicParsing="false" text="Seacrh" />
-      <Button layoutX="354.0" layoutY="431.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="130.0" text="My recipes" />
-      <Button layoutX="568.0" layoutY="431.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="130.0" text="Favorites" />
-   </children>
-</AnchorPane>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Pane prefHeight="61.0" prefWidth="600.0" style="-fx-background-color: brown;">
+               <children>
+                  <ImageView fitHeight="44.0" fitWidth="311.0" layoutX="169.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/CookDash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Create new Recipe" />
+                        <MenuItem mnemonicParsing="false" text="Search Recipe" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="My Recipes" />
+                <Menu mnemonicParsing="false" text="Favorites" />
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
