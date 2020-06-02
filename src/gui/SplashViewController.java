@@ -9,16 +9,18 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SplashViewController implements Initializable {
 
 	private static Scene mainScene;
-	
+
 	@FXML
 	private StackPane rootPane;
 
@@ -46,6 +48,20 @@ public class SplashViewController implements Initializable {
 						mainScene = new Scene(root);
 						Stage stage = new Stage();
 						stage.setScene(mainScene);
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/SearchRecipeView.fxml"));
+						VBox newVBox;
+						try {
+							newVBox = loader.load();
+							VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+							Node logo = mainVBox.getChildren().get(0);
+							Node mainMenu = mainVBox.getChildren().get(1);
+							mainVBox.getChildren().clear();
+							mainVBox.getChildren().add(logo);
+							mainVBox.getChildren().add(mainMenu);
+							mainVBox.getChildren().addAll(newVBox.getChildren());
+						} catch (IOException e) {
+							Alerts.showAlert("IOException", "Error loading view", e.getMessage(), AlertType.ERROR);
+						}
 						stage.setTitle("Cook Dash");
 						stage.show();
 
@@ -58,7 +74,7 @@ public class SplashViewController implements Initializable {
 		}
 
 	}
-	
+
 	public static Scene getMainScene() {
 		return mainScene;
 	}
