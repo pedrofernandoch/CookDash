@@ -4,17 +4,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import gui.util.Alerts;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class SplashViewController implements Initializable {
 
+	private static Scene mainScene;
+	
 	@FXML
 	private StackPane rootPane;
 
@@ -39,9 +43,9 @@ public class SplashViewController implements Initializable {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-						Scene scene = new Scene(root);
+						mainScene = new Scene(root);
 						Stage stage = new Stage();
-						stage.setScene(scene);
+						stage.setScene(mainScene);
 						stage.setTitle("Cook Dash");
 						stage.show();
 
@@ -49,9 +53,13 @@ public class SplashViewController implements Initializable {
 					}
 				});
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				Alerts.showAlert("InterruptedException", "Error loading view", e.getMessage(), AlertType.ERROR);
 			}
 		}
 
+	}
+	
+	public static Scene getMainScene() {
+		return mainScene;
 	}
 }
