@@ -11,8 +11,42 @@ import db.SQLiteConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 
 public class MainViewController implements Initializable {
+	
+	@FXML
+	private MenuItem createNewRecipe;
+	
+	@FXML
+	private MenuItem searchRecipe;
+	
+	@FXML
+	private MenuItem myRecipes;
+	
+	@FXML
+	private MenuItem favorites;
+	
+	@FXML
+	public void onCreateNewRecipeAction() {
+		System.out.println("onCreateNewRecipeAction");
+	}
+	
+	@FXML
+	public void onSearchRecipeAction() {
+		System.out.println("onSearchRecipeAction");
+	}
+	
+	@FXML
+	public void onMyRecipesAction() {
+		System.out.println("onMyRecipesAction");
+	}
+	
+	@FXML
+	public void onFavoritesAction() {
+		System.out.println("onFavoritesAction");
+	}
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {

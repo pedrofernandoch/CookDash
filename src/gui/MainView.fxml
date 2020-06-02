@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
       <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -27,12 +26,15 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Menu">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Create new Recipe" />
-                        <MenuItem mnemonicParsing="false" text="Search Recipe" />
+                    <MenuItem fx:id="createNewRecipe" mnemonicParsing="false" onAction="#onCreateNewRecipeAction" text="Create new Recipe" />
+                        <MenuItem fx:id="searchRecipe" mnemonicParsing="false" onAction="#onSearchRecipeAction" text="Search Recipe" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="My Recipes" />
-                <Menu mnemonicParsing="false" text="Favorites" />
+                <Menu mnemonicParsing="false" text="My Account">
+                     <items>
+                        <MenuItem fx:id="myRecipes" mnemonicParsing="false" onAction="#onMyRecipesAction" text="My Recipes" />
+                        <MenuItem fx:id="favorites" mnemonicParsing="false" onAction="#onFavoritesAction" text="Favorites" />
+                     </items></Menu>
               </menus>
             </MenuBar>
          </children>
