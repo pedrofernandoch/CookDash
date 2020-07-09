@@ -1,6 +1,5 @@
 package model.entities;
 
-import java.sql.Time;
 import java.util.ArrayList;
 
 public class Recipe {
@@ -9,11 +8,11 @@ public class Recipe {
 	private ArrayList<Category> categories;
 	private ArrayList<RecipeIngredient> ingredients;
 	private String directions;
-	private Time preparationTime;
-	private Time cookTime;
+	private float preparationTime;
+	private float cookTime;
 	private int servings;
 
-	public Recipe(String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, Time preparationTime, Time cookTime,
+	public Recipe(String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime,
 			int servings) {
 		setName(name);
 		setCategories(categories);
@@ -56,19 +55,19 @@ public class Recipe {
 		this.directions = directions;
 	}
 
-	public Time getPreparationTime() {
+	public float getPreparationTime() {
 		return preparationTime;
 	}
 
-	public void setPreparationTime(Time preparationTime) {
+	public void setPreparationTime(float preparationTime) {
 		this.preparationTime = preparationTime;
 	}
 
-	public Time getCookTime() {
+	public float getCookTime() {
 		return cookTime;
 	}
 
-	public void setCookTime(Time cookTime) {
+	public void setCookTime(float cookTime) {
 		this.cookTime = cookTime;
 	}
 

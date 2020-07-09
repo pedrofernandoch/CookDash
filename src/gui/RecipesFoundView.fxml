@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
-
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeFoundViewController">
+   <children>
+      <TableView fx:id="tableViewIngredients" prefHeight="402.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tableColumnIngredient0" prefWidth="287.20001220703125" text="C1" />
+          <TableColumn fx:id="tableColumnIngredient1" prefWidth="312.800048828125" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>
