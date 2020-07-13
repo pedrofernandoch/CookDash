@@ -18,10 +18,10 @@ public class RecipeFoundViewController implements Initializable {
 	private TableView<Recipe> tableViewIngredients;
 	
 	@FXML
-	private TableColumn<Recipe, String> tableColumnIngredient0;
-	
+	private TableColumn<Recipe, String> tableColumnRecipe;
+
 	@FXML
-	private TableColumn<Recipe, Button> tableColumnIngredient1;
+	private TableColumn<Recipe, Button> tableColumnView;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -31,7 +31,8 @@ public class RecipeFoundViewController implements Initializable {
 	private void initializeNodes() {
 		ObservableList<Recipe> obsList = SearchRecipeViewController.getObsList();
 		tableViewIngredients.setItems(obsList);
-		tableColumnIngredient0.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnRecipe.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnView.setCellValueFactory(new PropertyValueFactory<>("view"));
 	}
 
 }

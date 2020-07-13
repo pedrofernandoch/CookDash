@@ -80,7 +80,7 @@ public class SearchRecipeViewController implements Initializable {
 				float t1 = 15;
 				float t2 = 5;
 				int serv = 5;
-				rec.add(new Recipe("Brigadeiro",cats,ing,dir,t1,t2,serv));
+				rec.add(new Recipe(new Button("View"),"Brigadeiro",cats,ing,dir,t1,t2,serv));
 				obsListRecipe = FXCollections.observableArrayList(rec);
  
             	Parent parent;

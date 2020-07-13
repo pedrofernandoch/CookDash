@@ -2,6 +2,8 @@ package model.entities;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.Button;
+
 public class Recipe {
 
 	private String name;
@@ -11,8 +13,10 @@ public class Recipe {
 	private float preparationTime;
 	private float cookTime;
 	private int servings;
+	
+	public Button view;
 
-	public Recipe(String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime,
+	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime,
 			int servings) {
 		setName(name);
 		setCategories(categories);
@@ -21,6 +25,15 @@ public class Recipe {
 		setPreparationTime(preparationTime);
 		setCookTime(cookTime);
 		setServings(servings);
+		setView(view);
+	}
+
+	public Button getView() {
+		return view;
+	}
+
+	public void setView(Button view) {
+		this.view = view;
 	}
 
 	public String getName() {

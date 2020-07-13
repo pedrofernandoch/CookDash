@@ -3,7 +3,7 @@ package model.entities;
 public class PersonalRecipe extends Recipe {
 
 	public PersonalRecipe(Recipe recipe) {
-		super(recipe.getName(), recipe.getCategories(), recipe.getIngredients(), recipe.getDirections(), recipe.getPreparationTime(),
+		super(recipe.getView(),recipe.getName(), recipe.getCategories(), recipe.getIngredients(), recipe.getDirections(), recipe.getPreparationTime(),
 				recipe.getCookTime(), recipe.getServings());
 	}
 
