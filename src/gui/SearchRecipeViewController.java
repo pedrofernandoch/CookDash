@@ -13,9 +13,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -41,6 +41,8 @@ public class SearchRecipeViewController implements Initializable {
 	
 	private static ObservableList<Recipe> obsListRecipe;
 	
+	private static Scene recipeFound;
+
 	@FXML
 	private TextField txtIngredient;
 	
@@ -84,20 +86,21 @@ public class SearchRecipeViewController implements Initializable {
 				rec.add(new Recipe(new Button("View"),"Brigadeiro",cats,ing,dir,t1,t2,match,serv));
 				obsListRecipe = FXCollections.observableArrayList(rec);
  
-            	Parent parent;
+				ScrollPane scene = null;
 				try {
-					parent = FXMLLoader.load(getClass().getResource("/gui/RecipesFoundView.fxml"));
-					Scene scene = new Scene(parent);
-					 
-	                // New window (Stage)
-	                Stage newWindow = new Stage();
-	                newWindow.setTitle("Recipes Found");
-	                newWindow.setScene(scene);
-	                newWindow.show();
+					scene = FXMLLoader.load(RecipeFoundViewController.class.getResource("/gui/RecipesFoundView.fxml"));
+					scene.setFitToHeight(true);
+					scene.setFitToWidth(true);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				 
+				// New window (Stage)
+				Stage newWindow = new Stage();
+				newWindow.setTitle("Recipes Found");
+				recipeFound = new Scene(scene);
+				newWindow.setScene(recipeFound);
+				newWindow.show();
             }
         });
 	}
@@ -115,6 +118,10 @@ public class SearchRecipeViewController implements Initializable {
 
 	public static ObservableList<Recipe> getObsList() {
 		return obsListRecipe;
+	}
+	
+	public static Scene getRecipeFound() {
+		return recipeFound;
 	}
 
 }

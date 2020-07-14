@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeFoundViewController">
-   <children>
-      <TableView fx:id="tableViewIngredients" prefHeight="402.0" prefWidth="600.0">
-        <columns>
-          <TableColumn fx:id="tableColumnRecipe" prefWidth="211.199951171875" text="Recipe" />
-            <TableColumn fx:id="tableColumnMatch" prefWidth="182.39996337890625" text="Match %" />
-          <TableColumn fx:id="tableColumnView" prefWidth="206.40008544921875" text="View" />
-        </columns>
-      </TableView>
-   </children>
-</VBox>
+<ScrollPane prefHeight="391.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeFoundViewController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="594.0">
+         <children>
+            <TableView fx:id="tableViewRecipe" prefHeight="517.0" prefWidth="486.0">
+               <columns>
+                  <TableColumn fx:id="tableColumnRecipe" prefWidth="192.7999541759491" text="Recipe" />
+                  <TableColumn fx:id="tableColumnMatch" prefWidth="189.6000518798828" text="Match %" />
+                  <TableColumn fx:id="tableColumnView" prefWidth="212.79998779296875" text="View" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

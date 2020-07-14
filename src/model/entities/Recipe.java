@@ -2,6 +2,7 @@ package model.entities;
 
 import java.util.ArrayList;
 
+import gui.RecipeFoundViewController;
 import javafx.scene.control.Button;
 
 public class Recipe {
@@ -26,6 +27,10 @@ public class Recipe {
 		setMatch(match);
 		setServings(servings);
 		setView(view);
+		
+		view.setOnAction(e ->{
+			RecipeFoundViewController.LoadRecipe();
+		});
 	}
 
 	public Button getView() {
