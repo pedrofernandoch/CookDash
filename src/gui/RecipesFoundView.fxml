@@ -8,8 +8,9 @@
    <children>
       <TableView fx:id="tableViewIngredients" prefHeight="402.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tableColumnRecipe" prefWidth="287.20001220703125" text="Recipe" />
-          <TableColumn fx:id="tableColumnView" prefWidth="312.800048828125" text="View" />
+          <TableColumn fx:id="tableColumnRecipe" prefWidth="211.199951171875" text="Recipe" />
+            <TableColumn fx:id="tableColumnMatch" prefWidth="182.39996337890625" text="Match %" />
+          <TableColumn fx:id="tableColumnView" prefWidth="206.40008544921875" text="View" />
         </columns>
       </TableView>
    </children>

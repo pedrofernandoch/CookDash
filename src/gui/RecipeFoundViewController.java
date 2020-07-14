@@ -19,6 +19,9 @@ public class RecipeFoundViewController implements Initializable {
 	
 	@FXML
 	private TableColumn<Recipe, String> tableColumnRecipe;
+	
+	@FXML
+    private TableColumn<Recipe, Float> tableColumnMatch;
 
 	@FXML
 	private TableColumn<Recipe, Button> tableColumnView;
@@ -32,6 +35,7 @@ public class RecipeFoundViewController implements Initializable {
 		ObservableList<Recipe> obsList = SearchRecipeViewController.getObsList();
 		tableViewIngredients.setItems(obsList);
 		tableColumnRecipe.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnMatch.setCellValueFactory(new PropertyValueFactory<>("match"));
 		tableColumnView.setCellValueFactory(new PropertyValueFactory<>("view"));
 	}
 

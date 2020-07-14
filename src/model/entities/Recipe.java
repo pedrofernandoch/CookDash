@@ -10,13 +10,12 @@ public class Recipe {
 	private ArrayList<Category> categories;
 	private ArrayList<RecipeIngredient> ingredients;
 	private String directions;
-	private float preparationTime;
-	private float cookTime;
+	private float preparationTime, match, cookTime;
 	private int servings;
 	
 	public Button view;
 
-	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime,
+	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime, float match,
 			int servings) {
 		setName(name);
 		setCategories(categories);
@@ -24,6 +23,7 @@ public class Recipe {
 		setDirections(directions);
 		setPreparationTime(preparationTime);
 		setCookTime(cookTime);
+		setMatch(match);
 		setServings(servings);
 		setView(view);
 	}
@@ -83,6 +83,15 @@ public class Recipe {
 	public void setCookTime(float cookTime) {
 		this.cookTime = cookTime;
 	}
+	
+	public float getMatch() {
+		return match;
+	}
+
+	public void setMatch(float match) {
+		this.match = match;
+	}
+
 
 	public int getServings() {
 		return servings;
@@ -97,5 +106,4 @@ public class Recipe {
 		return "Recipe [name=" + name + ", categories=" + categories + ", directions=" + directions
 				+ ", preparationTime=" + preparationTime + ", cookTime=" + cookTime + ", servings=" + servings + "]";
 	}
-
 }

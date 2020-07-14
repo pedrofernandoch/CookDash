@@ -67,8 +67,8 @@ public class SearchRecipeViewController implements Initializable {
 	@FXML
 	public void onBtSearchAction() {
 		
-		btSearch.setOnAction(new EventHandler<ActionEvent>() {
-			 
+		btSearch.setOnAction(new EventHandler<ActionEvent>() {	 
+			
 			@Override
             public void handle(ActionEvent event) {
 				
@@ -79,8 +79,9 @@ public class SearchRecipeViewController implements Initializable {
 				String dir = "Coloque os ingredientes em uma leiteira ou panela, mexa sem parar no fogo médio até soltar da panela e pronto";
 				float t1 = 15;
 				float t2 = 5;
+				float match = 100;
 				int serv = 5;
-				rec.add(new Recipe(new Button("View"),"Brigadeiro",cats,ing,dir,t1,t2,serv));
+				rec.add(new Recipe(new Button("View"),"Brigadeiro",cats,ing,dir,t1,t2,match,serv));
 				obsListRecipe = FXCollections.observableArrayList(rec);
  
             	Parent parent;

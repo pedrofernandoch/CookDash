@@ -4,7 +4,7 @@ public class PersonalRecipe extends Recipe {
 
 	public PersonalRecipe(Recipe recipe) {
 		super(recipe.getView(),recipe.getName(), recipe.getCategories(), recipe.getIngredients(), recipe.getDirections(), recipe.getPreparationTime(),
-				recipe.getCookTime(), recipe.getServings());
+				recipe.getCookTime(), recipe.getMatch(),recipe.getServings());
 	}
 
 	public void addIngredient(Ingredient ingredient, float amount, Unit unit) {
