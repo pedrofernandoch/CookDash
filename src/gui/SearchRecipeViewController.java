@@ -66,8 +66,7 @@ public class SearchRecipeViewController implements Initializable {
 		txtIngredient.clear();
 	}
 	
-	@FXML
-	public void onBtSearchAction() {
+	public void initializeSearch() {
 		
 		btSearch.setOnAction(new EventHandler<ActionEvent>() {	 
 			
@@ -110,6 +109,7 @@ public class SearchRecipeViewController implements Initializable {
 		Constraints.setTextFieldInteger(txtIngredient);
 		Constraints.setTextFieldMaxLength(txtIngredient, 20);
 		initializeNodes();
+		initializeSearch();
 	}
 
 	private void initializeNodes() {

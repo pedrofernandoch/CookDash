@@ -46,7 +46,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btSearch" layoutX="95.0" layoutY="216.0" mnemonicParsing="false" onAction="#onBtSearchAction" prefHeight="79.0" prefWidth="209.0" text="SEARCH" />
+            <Button fx:id="btSearch" layoutX="95.0" layoutY="216.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="209.0" text="SEARCH" />
          </children>
       </Pane>
    </children>
