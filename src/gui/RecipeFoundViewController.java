@@ -17,6 +17,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.entities.Recipe;
 
@@ -25,8 +26,8 @@ public class RecipeFoundViewController implements Initializable {
 	private static Node table;
 	
 	@FXML
-	private Button recipes;
-	
+	private Button back;
+
 	@FXML
 	private TableView<Recipe> tableViewRecipe;
 	
@@ -42,6 +43,7 @@ public class RecipeFoundViewController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
+		back.setDisable(true);
 	}
 	
 	public static void loadRecipe() {
@@ -51,6 +53,8 @@ public class RecipeFoundViewController implements Initializable {
 			Scene mainScene = SearchRecipeViewController.getRecipeFound();
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 			Node pane = mainVBox.getChildren().get(0);
+			Node bt = ((Pane)pane).getChildren().get(1);
+			((Button)bt).setDisable(false);
 			table = mainVBox.getChildren().get(1);
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().add(pane);
@@ -61,13 +65,14 @@ public class RecipeFoundViewController implements Initializable {
 		}
 	}
 	
-	public void onRecipesAction() {
+	public void onBacksAction() {
 		Scene mainScene = SearchRecipeViewController.getRecipeFound();
 		VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 		Node pane = mainVBox.getChildren().get(0);
 		mainVBox.getChildren().clear();
 		mainVBox.getChildren().add(pane);
 		mainVBox.getChildren().add(table);
+		back.setDisable(true);
 	}
 
 	private void initializeNodes() {

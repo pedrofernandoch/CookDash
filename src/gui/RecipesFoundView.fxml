@@ -20,7 +20,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="recipes" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#onRecipesAction" text="Recipes" />
+                  <Button fx:id="back" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#onBacksAction" text="Back" />
                </children>
             </Pane>
             <TableView fx:id="tableViewRecipe" prefHeight="517.0" prefWidth="486.0">
