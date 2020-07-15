@@ -29,7 +29,7 @@ public class Recipe {
 		setView(view);
 		
 		view.setOnAction(e ->{
-			RecipeFoundViewController.LoadRecipe();
+			RecipeFoundViewController.loadRecipe();
 		});
 	}
 

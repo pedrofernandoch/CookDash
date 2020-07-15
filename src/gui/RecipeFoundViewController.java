@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -20,6 +21,11 @@ import javafx.scene.layout.VBox;
 import model.entities.Recipe;
 
 public class RecipeFoundViewController implements Initializable {
+	
+	private static Node table;
+	
+	@FXML
+	private Button recipes;
 	
 	@FXML
 	private TableView<Recipe> tableViewRecipe;
@@ -38,18 +44,30 @@ public class RecipeFoundViewController implements Initializable {
 		initializeNodes();
 	}
 	
-	public static void LoadRecipe() {
+	public static void loadRecipe() {
 		try {
 			FXMLLoader loader = new FXMLLoader(RecipeFoundViewController.class.getResource("/gui/RecipeView.fxml"));
 			VBox newVBox = loader.load();
 			Scene mainScene = SearchRecipeViewController.getRecipeFound();
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+			Node pane = mainVBox.getChildren().get(0);
+			table = mainVBox.getChildren().get(1);
 			mainVBox.getChildren().clear();
+			mainVBox.getChildren().add(pane);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 		}
 		catch (IOException exc) {
 			Alerts.showAlert("IO Exception", "Error loading view", exc.getMessage(), AlertType.ERROR);
 		}
+	}
+	
+	public void onRecipesAction() {
+		Scene mainScene = SearchRecipeViewController.getRecipeFound();
+		VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+		Node pane = mainVBox.getChildren().get(0);
+		mainVBox.getChildren().clear();
+		mainVBox.getChildren().add(pane);
+		mainVBox.getChildren().add(table);
 	}
 
 	private void initializeNodes() {
