@@ -60,7 +60,7 @@ public class SearchRecipeViewController implements Initializable {
 	
 	@FXML
 	public void onBtAddAction() {
-		ingredients.add(new Ingredient(txtIngredient.getText()));
+		if(txtIngredient.getText().length() != 0) ingredients.add(new Ingredient(txtIngredient.getText()));
 		obsListIngredient = FXCollections.observableArrayList(ingredients);
 		tableViewIngredients.setItems(obsListIngredient);
 		txtIngredient.clear();
@@ -107,7 +107,7 @@ public class SearchRecipeViewController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		Constraints.setTextFieldInteger(txtIngredient);
-		Constraints.setTextFieldMaxLength(txtIngredient, 20);
+		Constraints.setTextFieldMaxLength(txtIngredient, 100);
 		initializeNodes();
 		initializeSearch();
 	}
