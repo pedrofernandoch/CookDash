@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="208.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeCardViewController">
+   <children>
+      <VBox layoutX="15.0" prefHeight="217.0" prefWidth="160.0">
+         <children>
+            <Button fx:id="cardButton" ellipsisString="" mnemonicParsing="false" onAction="#startCardButton" text="Button" textFill="TRANSPARENT" wrapText="true">
+               <graphic>
+                  <ImageView fx:id="cardImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/brigadeiro.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="cardMatch" alignment="CENTER" prefHeight="16.0" prefWidth="77.0" text="Match%" wrapText="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="cardRecipie" alignment="CENTER" prefHeight="28.0" prefWidth="92.0" text="Receita" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+   <effect>
+      <DropShadow blurType="TWO_PASS_BOX" color="#d3d2d2" height="51.36" radius="22.1425" width="39.21" />
+   </effect>
+</AnchorPane>

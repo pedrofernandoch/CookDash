@@ -9,7 +9,7 @@
    <children>
       <Pane prefHeight="405.0" prefWidth="600.0">
          <children>
-            <Label fx:id="labelRecipe" layoutX="228.0" prefHeight="71.0" prefWidth="117.0" text="Recipe" textAlignment="CENTER">
+            <Label fx:id="labelRecipe" alignment="CENTER" layoutX="167.0" prefHeight="70.0" prefWidth="266.0" text="Recipe" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="34.0" />
                </font>
