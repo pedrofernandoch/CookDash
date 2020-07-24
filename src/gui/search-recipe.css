@@ -5,6 +5,22 @@
 	pink-light:#ff88b9;
 	light:#ffff8e;
 }
-.pane{
+.root{
 	-fx-background-color: caramel-light;
+}
+.text-field{
+	-fx-background-color:caramel-dark;
+}
+.table-view{
+	-fx-background-color:caramel-dark;
+}
+.table-view .column-header{
+	-fx-background-color:pink;
+}
+.table-view .button{
+	-fx-background-color:caramel-dark;
+}
+.button{
+	-fx-background-color:pink;
+	-fx-font-weight: bold;
 }

@@ -18,9 +18,15 @@
 	-fx-alignment:center;
 	-fx-background-color:light;
 }
+
+/* label do item fica text-color branco depois de pressed  tentativa de corrigij */
 .table-view:pressed{
 	-fx-text-fill:#000000;
 }
 .table-view .table-colum:pressed{
 	-fx-text-fill:#000000;
 }
+.pane{
+	-fx-background-color:light;
+}
+

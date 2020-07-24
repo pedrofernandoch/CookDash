@@ -12,7 +12,7 @@
    <children>
       <Pane prefHeight="363.0" prefWidth="585.0" styleClass="recipe-pane">
          <children>
-            <Label fx:id="labelRecipe" layoutX="8.0" prefHeight="50.0" prefWidth="474.0" stylesheets="@main-view.css" text="Recipe" textAlignment="CENTER">
+            <Label fx:id="labelRecipe" layoutX="8.0" prefHeight="50.0" prefWidth="474.0" text="Recipe" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="34.0" />
                </font>
