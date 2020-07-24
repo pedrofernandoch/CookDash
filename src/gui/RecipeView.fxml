@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -9,9 +10,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeViewController">
    <children>
-      <Pane prefHeight="363.0" prefWidth="585.0">
+      <Pane prefHeight="363.0" prefWidth="585.0" styleClass="recipe-pane">
          <children>
-            <Label fx:id="labelRecipe" layoutX="8.0" prefHeight="50.0" prefWidth="474.0" text="Recipe" textAlignment="CENTER">
+            <Label fx:id="labelRecipe" layoutX="8.0" prefHeight="50.0" prefWidth="474.0" stylesheets="@main-view.css" text="Recipe" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="34.0" />
                </font>
@@ -21,7 +22,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelPrepTime" layoutX="165.0" layoutY="63.0" text="Label" />
+            <Label fx:id="labelPrepTime" layoutX="189.0" layoutY="61.0" text="Label" />
             <Label layoutX="280.0" layoutY="59.0" text="Category" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -32,21 +33,25 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelServings" layoutX="103.0" layoutY="105.0" text="Label" />
+            <Label fx:id="labelServings" layoutX="114.0" layoutY="101.0" text="Label" />
             <Label layoutX="280.0" layoutY="99.0" text="Directions" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="txtAreaDir" layoutX="280.0" layoutY="136.0" prefHeight="160.0" prefWidth="304.0" />
+            <TextArea fx:id="txtAreaDir" layoutX="280.0" layoutY="136.0" prefHeight="160.0" prefWidth="304.0" style="-fx-background-color: #ffff8e;" styleClass="recipe-pane" stylesheets="@styles.css" wrapText="true" />
             <Label layoutX="16.0" layoutY="136.0" text="Ingredients" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="txtAreaIng" layoutX="17.0" layoutY="168.0" prefHeight="129.0" prefWidth="230.0" />
-            <TextField fx:id="txtFieldCategory" layoutX="358.0" layoutY="59.0" prefHeight="25.0" prefWidth="213.0" />
+            <TextArea fx:id="txtAreaIng" layoutX="17.0" layoutY="168.0" prefHeight="129.0" prefWidth="230.0" style="-fx-background-color: #ffff8e;" styleClass="recipe-pane" />
+            <TextField fx:id="txtFieldCategory" layoutX="380.0" layoutY="59.0" prefHeight="16.0" prefWidth="191.0" styleClass="recipe-pane-category" stylesheets="@styles.css" />
          </children>
+         <stylesheets>
+            <URL value="@styles.css" />
+            <URL value="@main-view.css" />
+         </stylesheets>
       </Pane>
    </children>
 </VBox>

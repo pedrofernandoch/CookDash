@@ -21,33 +21,23 @@
             <Insets left="10.0" top="5.0" />
          </padding>
       </Label>
-      <Pane prefHeight="350.0" prefWidth="600.0">
+      <Pane prefHeight="350.0" prefWidth="600.0" stylesheets="@search-recipe.css">
          <children>
-            <CheckBox fx:id="cbVegano" layoutX="27.0" layoutY="77.0" mnemonicParsing="false" text="Vegano" />
-            <CheckBox fx:id="cbDiabeitco" layoutX="27.0" layoutY="103.0" mnemonicParsing="false" text="Diabético" />
-            <TableView fx:id="tableViewIngredients" layoutX="402.0" layoutY="87.0" prefHeight="164.0" prefWidth="172.0">
+            <CheckBox fx:id="cbVegano" layoutX="65.0" layoutY="48.0" mnemonicParsing="false" text="Vegano" />
+            <CheckBox fx:id="cbDiabeitco" layoutX="65.0" layoutY="74.0" mnemonicParsing="false" text="Diabético" />
+            <TableView fx:id="tableViewIngredients" layoutX="386.0" layoutY="6.0" prefHeight="286.0" prefWidth="188.0">
               <columns>
                 <TableColumn fx:id="tableColumnIngredient" maxWidth="1.7976931348623157E308" prefWidth="171.20001220703125" text="Ingredients" />
               </columns>
             </TableView>
-            <Label layoutX="22.0" layoutY="153.0" text="Ingredient">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Label>
-            <Button fx:id="btAdd" layoutX="285.0" layoutY="149.0" minWidth="30.0" mnemonicParsing="false" onAction="#onBtAddAction" prefHeight="34.0" prefWidth="30.0" style="-fx-background-color: green;" text="+" textFill="WHITE">
+            <Button fx:id="btAdd" layoutX="285.0" layoutY="154.0" minWidth="30.0" mnemonicParsing="false" onAction="#onBtAddAction" prefHeight="6.0" prefWidth="30.0" style="-fx-background-color: green;" text="+" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="txtIngredient" layoutX="124.0" layoutY="153.0" promptText="Ingredient" />
-            <Label layoutX="14.0" layoutY="8.0" prefHeight="47.0" prefWidth="490.0" text="Type the ingredient you have and click &quot;+&quot; to add to the list">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Button fx:id="btSearch" layoutX="95.0" layoutY="216.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="209.0" text="SEARCH" />
-            <Button fx:id="btClear" layoutX="430.0" layoutY="279.0" mnemonicParsing="false" onAction="#onBtClearAction" text="Clear ingredients" />
+            <TextField fx:id="txtIngredient" layoutX="65.0" layoutY="154.0" prefHeight="28.0" prefWidth="209.0" promptText="Ingredient" />
+            <Button fx:id="btSearch" layoutX="65.0" layoutY="213.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="209.0" text="SEARCH" />
+            <Button fx:id="btClear" layoutX="415.0" layoutY="302.0" mnemonicParsing="false" onAction="#onBtClearAction" text="Clear ingredients" />
          </children>
       </Pane>
    </children>

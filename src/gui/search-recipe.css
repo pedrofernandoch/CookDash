@@ -1,0 +1,10 @@
+*{
+	caramel-light:#ffd555;
+	caramel-dark:#d8a41f;
+	pink:#ff5389;
+	pink-light:#ff88b9;
+	light:#ffff8e;
+}
+.pane{
+	-fx-background-color: caramel-light;
+}

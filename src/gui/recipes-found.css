@@ -1,0 +1,26 @@
+/*Estiliza recipe found view */
+*{
+	caramel-light:#ffd555;
+	caramel-dark:#d8a41f;
+	pink:#ff5389;
+	light:#ffff8e;
+}
+.column-header {
+	-fx-background-color:caramel-dark;
+}
+.column-header .label{
+	-fx-background-color:caramel-light;
+}
+.table-view{
+	-fx-background-color:light;
+}
+.table-view .table-column {
+	-fx-alignment:center;
+	-fx-background-color:light;
+}
+.table-view:pressed{
+	-fx-text-fill:#000000;
+}
+.table-view .table-colum:pressed{
+	-fx-text-fill:#000000;
+}

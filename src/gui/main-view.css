@@ -1,0 +1,16 @@
+*{
+	caramel-light:#ffd555;
+	caramel-dark:#d8a41f;
+	pink:#ff5389;
+	light:#ffff8e;
+}
+@font-face {
+    src: url("gui/Montserrat-Regular.ttf");
+}
+.label{
+	-fx-font-family:"Montserrat";
+}
+.menu-bar{
+	-fx-background-color:light;
+	-fx-font-family:"Montserrat";
+}

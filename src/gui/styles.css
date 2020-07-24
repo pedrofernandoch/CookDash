@@ -1,0 +1,25 @@
+/*Estiliza recipe view */
+*{
+	caramel-light:#ffd555;
+	caramel-dark:#d8a41f;
+	pink:#ff5389;
+	light:#ffff8e;
+}
+.root{
+	-fx-background-color:light;
+}
+.button {
+	-fx-text-size:14pt;
+}
+.label{
+	-fx-margin-left:20px;
+}
+.text-area {
+	-fx-control-inner-background:pink;
+}
+.recipe-pane{
+	-fx-background-color:caramel-light;
+}
+.recipe-pane-category{
+	-fx-background-color:caramel-dark;
+}
