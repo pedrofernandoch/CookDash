@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="391.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeFoundViewController">
+<ScrollPane prefHeight="498.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecipeFoundViewController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="594.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="732.0">
          <children>
-            <Pane prefHeight="207.0" prefWidth="594.0">
+            <Pane prefHeight="209.0" prefWidth="594.0">
                <children>
-                  <Label layoutX="256.0" layoutY="13.0" text="Recipes Found">
+                  <Label layoutX="326.0" layoutY="18.0" text="Recipes Found">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="back" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#onBacksAction" text="Back" />
+                  <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBacksAction" text="Back" />
                </children>
             </Pane>
-            <TableView fx:id="tableViewRecipe" prefHeight="511.0" prefWidth="594.0">
+            <TableView fx:id="tableViewRecipe" prefHeight="605.0" prefWidth="762.0">
                <columns>
-                  <TableColumn fx:id="tableColumnRecipe" prefWidth="192.7999541759491" text="Recipe" />
-                  <TableColumn fx:id="tableColumnMatch" prefWidth="189.6000518798828" text="Match %" />
-                  <TableColumn fx:id="tableColumnView" prefWidth="212.79998779296875" text="View" />
+                  <TableColumn fx:id="tableColumnRecipe" prefWidth="491.0" text="Recipe" />
+                  <TableColumn fx:id="tableColumnMatch" prefWidth="130.0" text="Match %" />
+                  <TableColumn fx:id="tableColumnView" prefWidth="110.0" text="View" />
                </columns>
             </TableView>
          </children>

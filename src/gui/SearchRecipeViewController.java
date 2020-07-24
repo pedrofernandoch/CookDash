@@ -192,6 +192,7 @@ public class SearchRecipeViewController implements Initializable {
 				 
 				// New window (Stage)
 				Stage newWindow = new Stage();
+				newWindow.setResizable(false);
 				newWindow.setTitle("Recipes Found");
 				recipeFound = new Scene(scene);
 				newWindow.setScene(recipeFound);

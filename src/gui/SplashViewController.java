@@ -48,6 +48,7 @@ public class SplashViewController implements Initializable {
 						mainScene = new Scene(root);
 						Stage stage = new Stage();
 						stage.setScene(mainScene);
+						stage.setResizable(false);
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/SearchRecipeView.fxml"));
 						VBox newVBox;
 						try {
