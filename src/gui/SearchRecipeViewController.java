@@ -35,7 +35,7 @@ import model.entities.Unit;
 
 public class SearchRecipeViewController implements Initializable {
 	
-	public static ArrayList<Integer> indexes = new ArrayList<>();
+	/*public static ArrayList<Integer> indexes = new ArrayList<>();
 	
 	public static ArrayList<Integer> getIndexes() {
 		return indexes;
@@ -43,7 +43,7 @@ public class SearchRecipeViewController implements Initializable {
 
 	public static void setIndexes(ArrayList<Integer> indexes) {
 		SearchRecipeViewController.indexes = indexes;
-	}
+	}*/
 
 	private ArrayList<Ingredient> ingredients = new ArrayList<>();
 	
@@ -170,7 +170,7 @@ public class SearchRecipeViewController implements Initializable {
 						match = ((float)counter/ing.size()) * 100;
 						
 						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,prepTime,match,serv,index));
-						indexes.add(index);
+						//indexes.add(index);
 						index++;
 					}
 				} catch (SQLException e1) {

@@ -40,14 +40,14 @@ public class RecipeViewController implements Initializable {
     
     private void initializeLabels() {
     	ObservableList<Recipe> obsList = SearchRecipeViewController.getObsList();
-    	labelRecipe.setText(obsList.get(SearchRecipeViewController.getIndexes().get(index)).getName());
-    	labelPrepTime.setText(String.valueOf(obsList.get(SearchRecipeViewController.getIndexes().get(index)).getPreparationTime()));
-    	labelServings.setText(String.valueOf(obsList.get(SearchRecipeViewController.getIndexes().get(index)).getServings()));
-    	for(RecipeIngredient ing : obsList.get(SearchRecipeViewController.getIndexes().get(index)).getIngredients()) {
+    	labelRecipe.setText(obsList.get(index).getName());
+    	labelPrepTime.setText(String.valueOf(obsList.get(index).getPreparationTime()));
+    	labelServings.setText(String.valueOf(obsList.get(index).getServings()));
+    	for(RecipeIngredient ing : obsList.get(index).getIngredients()) {
     		txtAreaIng.appendText(ing.toString()+"\n");
     	}
-    	labelCategory.setText(obsList.get(SearchRecipeViewController.getIndexes().get(index)).getCategories().get(SearchRecipeViewController.getIndexes().get(index)).getName());
-    	txtAreaDir.appendText(obsList.get(SearchRecipeViewController.getIndexes().get(index)).getDirections());
+    	labelCategory.setText(obsList.get(index).getCategories().get(index).getName());
+    	txtAreaDir.appendText(obsList.get(index).getDirections());
 	}
 
 	public static int getIndex() {
