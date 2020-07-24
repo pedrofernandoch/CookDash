@@ -12,11 +12,11 @@
 	-fx-background-color:caramel-light;
 }
 .table-view{
-	-fx-background-color:light;
+	-fx-background-color:caramel-light;
 }
 .table-view .table-column {
 	-fx-alignment:center;
-	-fx-background-color:light;
+	-fx-background-color:caramel-light;
 }
 
 /* label do item fica text-color branco depois de pressed  tentativa de corrigij */
@@ -26,7 +26,9 @@
 .table-view .table-colum:pressed{
 	-fx-text-fill:#000000;
 }
-.pane{
-	-fx-background-color:light;
+.root{
+	-fx-background-color:caramel-light;
 }
-
+.button{
+	-fx-background-color:pink;
+}

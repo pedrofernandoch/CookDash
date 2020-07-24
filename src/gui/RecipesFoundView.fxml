@@ -13,7 +13,7 @@
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="732.0">
          <children>
-            <Pane prefHeight="61.0" prefWidth="736.0" stylesheets="@recipes-found.css">
+            <Pane prefHeight="513.0" prefWidth="732.0" styleClass="root" stylesheets="@recipes-found.css">
                <children>
                   <Label layoutX="326.0" layoutY="18.0" text="Recipes Found">
                      <font>
@@ -21,18 +21,18 @@
                      </font>
                   </Label>
                   <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBacksAction" text="Back" />
+                  <TableView fx:id="tableViewRecipe" layoutX="6.0" layoutY="61.0" prefHeight="342.0" prefWidth="721.0" stylesheets="@recipes-found.css">
+                     <columns>
+                        <TableColumn fx:id="tableColumnRecipe" prefWidth="491.0" style="-fx-alignment: center;" text="Recipe" />
+                        <TableColumn fx:id="tableColumnMatch" prefWidth="130.0" text="Match %" />
+                        <TableColumn fx:id="tableColumnView" prefWidth="110.0" text="View" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
                </children>
             </Pane>
-            <TableView fx:id="tableViewRecipe" prefHeight="342.0" prefWidth="664.0" stylesheets="@recipes-found.css">
-               <columns>
-                  <TableColumn fx:id="tableColumnRecipe" prefWidth="491.0" style="-fx-alignment: center;" text="Recipe" />
-                  <TableColumn fx:id="tableColumnMatch" prefWidth="130.0" text="Match %" />
-                  <TableColumn fx:id="tableColumnView" prefWidth="110.0" text="View" />
-               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
          </children>
       </VBox>
    </content>
