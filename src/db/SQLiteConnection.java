@@ -13,7 +13,6 @@ public class SQLiteConnection {
 	public static Connection getConnection() throws SQLException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			initialize();
 			return DriverManager.getConnection(conn);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -27,25 +26,6 @@ public class SQLiteConnection {
 		Statement st = null;
 		try {
 			conn = getConnection();
-			st = conn.createStatement();
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Recipes (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	name text NOT NULL,\n" + "	directions text NOT NULL,\n" + "	preparationTime real,\n"
-					+ "	servings integer\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS MyRecipes (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	name text NOT NULL,\n" + "	directions text NOT NULL,\n" + "	preparationTime real,\n"
-					+ "	servings integer\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Categories (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	name text NOT NULL\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Recipe_Categories (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	FOREIGN KEY (id)\n" + " REFERENCES Recipes (recipe_id),\n" + "	FOREIGN KEY (id)\n"
-					+ " REFERENCES Categories (category_id)\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Ingredients (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	name text NOT NULL\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Units (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	name text NOT NULL\n" + ");");
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS Recipe_Ingredients (\n" + "	id integer PRIMARY KEY,\n"
-					+ "	FOREIGN KEY (id)\n" + " REFERENCES Recipes (recipe_id),\n" + "	FOREIGN KEY (id)\n"
-					+ " REFERENCES Ingredients (ingredient_id)\n" + ");");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

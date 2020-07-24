@@ -1,6 +1,15 @@
 package gui;
 
 import java.io.IOException;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import db.SQLiteConnection;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -72,17 +81,69 @@ public class SearchRecipeViewController implements Initializable {
 			
 			@Override
             public void handle(ActionEvent event) {
+				String ingredientsString = "";
+				
+				for (int i=0;i<ingredients.size(); i++) {
+					if (i == 0) ingredientsString = ingredientsString + "UPPER('" +  ingredients.get(i).getName() + "')";
+					else ingredientsString = ingredientsString + ", " + "UPPER('" +  ingredients.get(i).getName() + "')";
+				}
+				
+				//Getting recipes from DB
+				Connection conn = null;
+				Statement st = null;
+				ResultSet resultSet=null;
+				ResultSet resultSet2=null;
 				
 				cats.add(new Category("Normal"));
-				ing.add(new RecipeIngredient(new Ingredient("leite condensado"),1,new Unit("unidade")));
-				ing.add(new RecipeIngredient(new Ingredient("nescal"),3,new Unit("colheres")));
-				ing.add(new RecipeIngredient(new Ingredient("manteiga"),1,new Unit("colher")));
-				String dir = "Coloque os ingredientes em uma leiteira ou panela, mexa sem parar no fogo médio até soltar da panela e pronto";
-				float t1 = 15;
-				float t2 = 5;
-				float match = 100;
-				int serv = 5;
-				rec.add(new Recipe(new Button("View"),"Brigadeiro",cats,ing,dir,t1,t2,match,serv));
+				float t1 = 0;
+				float t2 = 0;
+				int id = 0;
+				String name = "";
+				String directions = "";
+				float match = 0;
+				int serv = 0;
+				
+				rec.clear();
+				
+				try {
+					conn = SQLiteConnection.getConnection();
+					st = conn.createStatement();
+					
+					resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients"
+			                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
+			                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
+			                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
+			                + ";");
+				
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					while (resultSet.next()) {
+						id = resultSet.getInt(1);
+						name = resultSet.getString(2);
+						directions = resultSet.getString(3);
+						match = resultSet.getFloat(4);
+						serv = resultSet.getInt(5);
+						
+						Statement st2 = conn.createStatement();
+						
+						resultSet2 = st2.executeQuery("SELECT Ingredients.name FROM  Ingredients, Recipe_Ingredients"
+				                + "	WHERE Recipe_Ingredients.recipe_id =" + String.valueOf(id) + "\n"
+				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
+				                + ";");
+						while (resultSet2.next()) {
+							ing.add(new RecipeIngredient(new Ingredient(resultSet2.getString(1)),1,new Unit("unidade")));
+						}
+						
+						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,t1,t2,match,serv));
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
 				obsListRecipe = FXCollections.observableArrayList(rec);
  
 				ScrollPane scene = null;
