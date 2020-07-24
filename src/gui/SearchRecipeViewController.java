@@ -168,8 +168,8 @@ public class SearchRecipeViewController implements Initializable {
 					e1.printStackTrace();
 				}
 				
-				
-				obsListRecipe = FXCollections.observableArrayList(rec);
+				obsListRecipe = FXCollections.observableArrayList(new ArrayList<Recipe>(rec));
+				rec.clear();
  
 				ScrollPane scene = null;
 				try {
