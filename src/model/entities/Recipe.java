@@ -14,7 +14,6 @@ public class Recipe {
 	private String directions;
 	private float preparationTime, match;
 	private int servings,index;
-	
 	public Button view;
 
 	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float match,
