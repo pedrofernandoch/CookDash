@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import model.entities.Category;
 import model.entities.Recipe;
 import model.entities.RecipeIngredient;
 
@@ -25,7 +27,7 @@ public class RecipeViewController implements Initializable {
     private Label labelServings;
 
     @FXML
-    private Label labelCategory;
+    private TextField txtFieldCategory;
     
     @FXML
     private TextArea txtAreaIng;
@@ -35,6 +37,7 @@ public class RecipeViewController implements Initializable {
     
     @Override
 	public void initialize(URL url, ResourceBundle rb) {
+    	System.out.println("INICIOU COM INDEX = " + index);
 		initializeLabels();
 	}
     
@@ -46,7 +49,9 @@ public class RecipeViewController implements Initializable {
     	for(RecipeIngredient ing : obsList.get(index).getIngredients()) {
     		txtAreaIng.appendText(ing.toString()+"\n");
     	}
-    	labelCategory.setText(obsList.get(index).getCategories().get(index).getName());
+    	for(Category cat : obsList.get(index).getCategories()) {
+    		txtFieldCategory.appendText(cat.getName()+" ");
+    	}
     	txtAreaDir.appendText(obsList.get(index).getDirections());
 	}
 
