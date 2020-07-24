@@ -11,9 +11,6 @@
 .button {
 	-fx-text-size:14pt;
 }
-.label{
-	-fx-margin-left:20px;
-}
 .text-area {
 	-fx-control-inner-background:pink;
 }

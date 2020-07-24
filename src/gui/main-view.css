@@ -7,8 +7,14 @@
 @font-face {
     src: url("gui/Montserrat-Regular.ttf");
 }
+.root{
+	-fx-background-color: caramel-light;
+}
 .label{
-	-fx-font-family:"Montserrat";
+	 -fx-font-family:"Montserrat";
+	/*
+	-fx-margin-left:20px;
+	 */
 }
 .menu-bar{
 	-fx-background-color:light;
