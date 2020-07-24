@@ -161,6 +161,7 @@ public class SearchRecipeViewController implements Initializable {
 						
 						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,prepTime,match,serv,index));
 						index++;
+						ing.clear();
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
