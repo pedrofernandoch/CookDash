@@ -159,7 +159,7 @@ public class SearchRecipeViewController implements Initializable {
 						
 						match = ((float)counter/ing.size()) * 100;
 						
-						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,prepTime,match,serv,index));
+						rec.add(new Recipe(new Button("View"),name,cats,new ArrayList<RecipeIngredient>(ing),directions,prepTime,match,serv,index));
 						index++;
 						ing.clear();
 					}
