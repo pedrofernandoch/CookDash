@@ -1,19 +1,15 @@
 package gui;
 
 import java.io.IOException;
-
+import java.net.URL;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import db.SQLiteConnection;
-
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import db.SQLiteConnection;
 import gui.util.Constraints;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -38,6 +35,16 @@ import model.entities.Unit;
 
 public class SearchRecipeViewController implements Initializable {
 	
+	public static ArrayList<Integer> indexes = new ArrayList<>();
+	
+	public static ArrayList<Integer> getIndexes() {
+		return indexes;
+	}
+
+	public static void setIndexes(ArrayList<Integer> indexes) {
+		SearchRecipeViewController.indexes = indexes;
+	}
+
 	private ArrayList<Ingredient> ingredients = new ArrayList<>();
 	
 	private ArrayList<Category> cats = new ArrayList<>();
@@ -51,6 +58,12 @@ public class SearchRecipeViewController implements Initializable {
 	private static ObservableList<Recipe> obsListRecipe;
 	
 	private static Scene recipeFound;
+	
+    @FXML
+    private CheckBox cbVegano;
+
+    @FXML
+    private CheckBox cbDiabeitco;
 
 	@FXML
 	private TextField txtIngredient;
@@ -60,6 +73,9 @@ public class SearchRecipeViewController implements Initializable {
 	
 	@FXML
 	private Button btAdd;
+	
+	@FXML
+	private Button btClear;
 	
 	@FXML
 	public TableView<Ingredient> tableViewIngredients;
@@ -73,6 +89,13 @@ public class SearchRecipeViewController implements Initializable {
 		obsListIngredient = FXCollections.observableArrayList(ingredients);
 		tableViewIngredients.setItems(obsListIngredient);
 		txtIngredient.clear();
+	}
+	
+	@FXML
+	public void onBtClearAction() {
+		ingredients.clear();
+		obsListIngredient = FXCollections.observableArrayList(ingredients);
+		tableViewIngredients.setItems(obsListIngredient);
 	}
 	
 	public void initializeSearch() {
@@ -95,8 +118,7 @@ public class SearchRecipeViewController implements Initializable {
 				ResultSet resultSet2=null;
 				
 				cats.add(new Category("Normal"));
-				float t1 = 0;
-				float t2 = 0;
+				float prepTime = 0;
 				int id = 0;
 				String name = "";
 				String directions = "";
@@ -118,12 +140,13 @@ public class SearchRecipeViewController implements Initializable {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				int index=0;
 				try {
 					while (resultSet.next()) {
 						id = resultSet.getInt(1);
 						name = resultSet.getString(2);
 						directions = resultSet.getString(3);
-						match = resultSet.getFloat(4);
+						prepTime = resultSet.getFloat(4);
 						serv = resultSet.getInt(5);
 						
 						Statement st2 = conn.createStatement();
@@ -136,7 +159,19 @@ public class SearchRecipeViewController implements Initializable {
 							ing.add(new RecipeIngredient(new Ingredient(resultSet2.getString(1)),1,new Unit("unidade")));
 						}
 						
-						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,t1,t2,match,serv));
+						int counter=0;
+						for (RecipeIngredient ingRecipe : ing) {							
+							for (Ingredient ingTable : ingredients) {								
+					            if(ingRecipe.getIngredient().getName().toLowerCase().equals(ingTable.getName().toLowerCase()))
+					            	counter++;
+					        }							
+				        }
+						
+						match = ((float)counter/ing.size()) * 100;
+						
+						rec.add(new Recipe(new Button("View"),name,cats,ing,directions,prepTime,match,serv,index));
+						indexes.add(index);
+						index++;
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block

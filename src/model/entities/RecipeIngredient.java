@@ -36,4 +36,9 @@ public class RecipeIngredient {
 		this.unit = unit;
 	}
 
+	@Override
+	public String toString() {
+		return ""+ amount + " " + unit.getName() + " de " + ingredient.getName();
+	}
+
 }

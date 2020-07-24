@@ -21,6 +21,7 @@ public class SQLiteConnection {
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	private static void initialize() {
 		Connection conn = null;
 		Statement st = null;

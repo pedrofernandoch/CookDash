@@ -13,7 +13,7 @@
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="594.0">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="207.0" prefWidth="594.0">
                <children>
                   <Label layoutX="256.0" layoutY="13.0" text="Recipes Found">
                      <font>
@@ -23,7 +23,7 @@
                   <Button fx:id="back" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#onBacksAction" text="Back" />
                </children>
             </Pane>
-            <TableView fx:id="tableViewRecipe" prefHeight="517.0" prefWidth="486.0">
+            <TableView fx:id="tableViewRecipe" prefHeight="511.0" prefWidth="594.0">
                <columns>
                   <TableColumn fx:id="tableColumnRecipe" prefWidth="192.7999541759491" text="Recipe" />
                   <TableColumn fx:id="tableColumnMatch" prefWidth="189.6000518798828" text="Match %" />

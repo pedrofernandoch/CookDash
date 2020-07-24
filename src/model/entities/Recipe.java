@@ -3,6 +3,7 @@ package model.entities;
 import java.util.ArrayList;
 
 import gui.RecipeFoundViewController;
+import gui.RecipeViewController;
 import javafx.scene.control.Button;
 
 public class Recipe {
@@ -11,24 +12,25 @@ public class Recipe {
 	private ArrayList<Category> categories;
 	private ArrayList<RecipeIngredient> ingredients;
 	private String directions;
-	private float preparationTime, match, cookTime;
-	private int servings;
+	private float preparationTime, match;
+	private int servings,index;
 	
 	public Button view;
 
-	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float cookTime, float match,
-			int servings) {
+	public Recipe(Button view, String name, ArrayList<Category> categories, ArrayList<RecipeIngredient> ingredients, String directions, float preparationTime, float match,
+			int servings, int index) {
 		setName(name);
 		setCategories(categories);
 		setIngredients(ingredients);
 		setDirections(directions);
 		setPreparationTime(preparationTime);
-		setCookTime(cookTime);
 		setMatch(match);
 		setServings(servings);
 		setView(view);
+		setIndex(index);
 		
 		view.setOnAction(e ->{
+			RecipeViewController.setIndex(index);
 			RecipeFoundViewController.loadRecipe();
 		});
 	}
@@ -80,14 +82,6 @@ public class Recipe {
 	public void setPreparationTime(float preparationTime) {
 		this.preparationTime = preparationTime;
 	}
-
-	public float getCookTime() {
-		return cookTime;
-	}
-
-	public void setCookTime(float cookTime) {
-		this.cookTime = cookTime;
-	}
 	
 	public float getMatch() {
 		return match;
@@ -109,6 +103,14 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return "Recipe [name=" + name + ", categories=" + categories + ", directions=" + directions
-				+ ", preparationTime=" + preparationTime + ", cookTime=" + cookTime + ", servings=" + servings + "]";
+				+ ", preparationTime=" + preparationTime + ", servings=" + servings + "]";
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
 	}
 }

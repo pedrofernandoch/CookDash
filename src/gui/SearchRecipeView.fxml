@@ -23,8 +23,8 @@
       </Label>
       <Pane prefHeight="350.0" prefWidth="600.0">
          <children>
-            <CheckBox layoutX="27.0" layoutY="77.0" mnemonicParsing="false" text="Vegano" />
-            <CheckBox layoutX="27.0" layoutY="103.0" mnemonicParsing="false" text="Diabético" />
+            <CheckBox fx:id="cbVegano" layoutX="27.0" layoutY="77.0" mnemonicParsing="false" text="Vegano" />
+            <CheckBox fx:id="cbDiabeitco" layoutX="27.0" layoutY="103.0" mnemonicParsing="false" text="Diabético" />
             <TableView fx:id="tableViewIngredients" layoutX="402.0" layoutY="87.0" prefHeight="164.0" prefWidth="172.0">
               <columns>
                 <TableColumn fx:id="tableColumnIngredient" maxWidth="1.7976931348623157E308" prefWidth="171.20001220703125" text="Ingredients" />
@@ -47,6 +47,7 @@
                </font>
             </Label>
             <Button fx:id="btSearch" layoutX="95.0" layoutY="216.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="209.0" text="SEARCH" />
+            <Button fx:id="btClear" layoutX="430.0" layoutY="279.0" mnemonicParsing="false" onAction="#onBtClearAction" text="Clear ingredients" />
          </children>
       </Pane>
    </children>
