@@ -46,6 +46,7 @@ public class MainViewController {
 		loadView("/gui/FavoritesView.fxml");
 	}
 	
+	//Troca de pagina mas mantém o logo e o menu
 	private synchronized void loadView(String absoluteName) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));

@@ -40,6 +40,7 @@ public class RecipeViewController implements Initializable {
 		initializeLabels();
 	}
     
+    //Seta os valores da receita nos campos
     private void initializeLabels() {
     	ObservableList<Recipe> obsList = SearchRecipeViewController.getObsList();
     	labelRecipe.setText(obsList.get(index).getName());

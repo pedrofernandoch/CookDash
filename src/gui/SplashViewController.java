@@ -29,16 +29,17 @@ public class SplashViewController implements Initializable {
 		new SplashScreen().start();
 	}
 
+	//Splash screen, uma pagina de splash fica por dois segundos e depois troca para a main view
 	class SplashScreen extends Thread {
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(2000); //Espera dois segundos
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
 						ScrollPane root = null;
-						try {
+						try { //Carrega pagina main view
 							root = FXMLLoader.load(getClass().getResource("/gui/MainView.fxml"));
 							root.setFitToHeight(true);
 							root.setFitToWidth(true);
@@ -49,6 +50,7 @@ public class SplashViewController implements Initializable {
 						Stage stage = new Stage();
 						stage.setScene(mainScene);
 						stage.setResizable(false);
+						//Carrega pagina de search da main view
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/SearchRecipeView.fxml"));
 						VBox newVBox;
 						try {

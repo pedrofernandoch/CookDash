@@ -46,6 +46,7 @@ public class RecipeFoundViewController implements Initializable {
 		back.setDisable(true);
 	}
 	
+	//Carrega uma receita selecionada pelo botão view
 	public static void loadRecipe() {
 		try {
 			FXMLLoader loader = new FXMLLoader(RecipeFoundViewController.class.getResource("/gui/RecipeView.fxml"));
@@ -65,6 +66,7 @@ public class RecipeFoundViewController implements Initializable {
 		}
 	}
 	
+	//Volta para tabela de receitas
 	public void onBacksAction() {
 		Scene mainScene = SearchRecipeViewController.getRecipeFound();
 		VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
@@ -75,6 +77,7 @@ public class RecipeFoundViewController implements Initializable {
 		back.setDisable(true);
 	}
 
+	//Inicializa a tabela
 	private void initializeNodes() {
 		ObservableList<Recipe> obsList = SearchRecipeViewController.getObsList();
 		tableViewRecipe.setItems(obsList);

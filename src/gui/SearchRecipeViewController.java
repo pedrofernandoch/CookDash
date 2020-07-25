@@ -73,6 +73,7 @@ public class SearchRecipeViewController implements Initializable {
 	@FXML
 	public TableColumn<Ingredient, String> tableColumnIngredient;
 	
+	//Ao clicar no botão adiciona o ingrediente na caixa de texto para um array de ingredientes e mostra na tabela
 	@FXML
 	public void onBtAddAction() {
 		if(txtIngredient.getText().length() != 0) ingredients.add(new Ingredient(txtIngredient.getText()));
@@ -81,6 +82,7 @@ public class SearchRecipeViewController implements Initializable {
 		txtIngredient.clear();
 	}
 	
+	//Limpa os ingredientes da tabela e do array
 	@FXML
 	public void onBtClearAction() {
 		ingredients.clear();
@@ -88,6 +90,7 @@ public class SearchRecipeViewController implements Initializable {
 		tableViewIngredients.setItems(obsListIngredient);
 	}
 	
+	//Função que realiza a busca de receitas usando os ingredientes da tabela e a checkbox 
 	public void initializeSearch() {
 		
 		btSearch.setOnAction(new EventHandler<ActionEvent>() {	 
@@ -119,13 +122,13 @@ public class SearchRecipeViewController implements Initializable {
 				
 				try {
 					conn = SQLiteConnection.getConnection();
-					st = conn.createStatement();
+					st = conn.createStatement(); // Sem filtro
 					resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients"
 			                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
 			                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
 			                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
 			                + ";");
-					if (cbVegano.isSelected() && cbDiabeitco.isSelected()) {
+					if (cbVegano.isSelected() && cbDiabeitco.isSelected()) { //Com ambos os filtros
 						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
 				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
 				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
@@ -134,7 +137,7 @@ public class SearchRecipeViewController implements Initializable {
 				                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
 				                + ";");
 					}
-					else if (cbVegano.isSelected()) {
+					else if (cbVegano.isSelected()) { //Com filtro vegano 
 						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
 				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
 				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
@@ -143,7 +146,7 @@ public class SearchRecipeViewController implements Initializable {
 				                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
 				                + ";");
 					}
-					else if (cbDiabeitco.isSelected()) {
+					else if (cbDiabeitco.isSelected()) { //Com filtro diabetico
 						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
 				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
 				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
@@ -157,7 +160,7 @@ public class SearchRecipeViewController implements Initializable {
 					e.printStackTrace();
 				}
 				int index=0;
-				try {
+				try { //Pega os resultados e coloca em um array de receitas
 					while (resultSet.next()) {
 						id = resultSet.getInt(1);
 						name = resultSet.getString(2);
@@ -176,6 +179,7 @@ public class SearchRecipeViewController implements Initializable {
 						}
 						
 						int counter=0;
+						//Faz a porcentagem de match 
 						for (RecipeIngredient ingRecipe : ing) {							
 							for (Ingredient ingTable : ingredients) {								
 					            if(ingRecipe.getIngredient().getName().toLowerCase().equals(ingTable.getName().toLowerCase()))
@@ -194,10 +198,12 @@ public class SearchRecipeViewController implements Initializable {
 					e1.printStackTrace();
 				}
 				
+				//Cria uma obslit com o array de receitas para poder mostrar na tabela
 				obsListRecipe = FXCollections.observableArrayList(new ArrayList<Recipe>(rec));
 				rec.clear();
 				cats.clear();
  
+				//Carrega uma nova janela com uma tabela contendo as receitas
 				ScrollPane scene = null;
 				try {
 					scene = FXMLLoader.load(RecipeFoundViewController.class.getResource("/gui/RecipesFoundView.fxml"));
@@ -218,6 +224,7 @@ public class SearchRecipeViewController implements Initializable {
         });
 	}
 	
+	// Inicializa os componentes necessários e as restrições para os nomes de ingredientes
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		Constraints.setTextFieldInteger(txtIngredient);

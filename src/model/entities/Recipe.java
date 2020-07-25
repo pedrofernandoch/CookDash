@@ -28,6 +28,7 @@ public class Recipe {
 		setView(view);
 		setIndex(index);
 		
+		//Carrega a view da receita 
 		view.setOnAction(e ->{
 			RecipeViewController.setIndex(index);
 			RecipeFoundViewController.loadRecipe();
