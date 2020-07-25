@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateNewRecipeViewController">
    <children>
       <Label prefHeight="46.0" prefWidth="355.0" text="Create New Recipe">
          <font>
@@ -17,17 +17,17 @@
       </Label>
       <Pane prefHeight="354.0" prefWidth="600.0">
          <children>
-            <TextField layoutX="14.0" layoutY="22.0" promptText="Name" />
-            <TextField layoutX="14.0" layoutY="61.0" promptText="PreparationTime" />
-            <TextField layoutX="14.0" layoutY="99.0" promptText="Servings" />
-            <TextArea layoutX="14.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" promptText="Directions" />
-            <TextField layoutX="373.0" layoutY="22.0" promptText="Ingredient" />
-            <Button layoutX="533.0" layoutY="22.0" mnemonicParsing="false" text="Add" />
-            <TextField layoutX="238.0" layoutY="61.0" promptText="Category" />
-            <Button layoutX="400.0" layoutY="61.0" mnemonicParsing="false" text="Add" />
-            <TextField layoutX="300.0" layoutY="22.0" prefHeight="25.0" prefWidth="63.0" promptText="Unit" />
-            <TextField layoutX="238.0" layoutY="22.0" prefHeight="25.0" prefWidth="52.0" promptText="N°" />
-            <Button layoutX="307.0" layoutY="140.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="223.0" text="Create" />
+            <TextField fx:id="txtName" layoutX="14.0" layoutY="22.0" promptText="Name" />
+            <TextField fx:id="txtPrep" layoutX="14.0" layoutY="61.0" promptText="PreparationTime" />
+            <TextField fx:id="txtServ" layoutX="14.0" layoutY="99.0" promptText="Servings" />
+            <TextArea fx:id="txtDir" layoutX="14.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" promptText="Directions" />
+            <TextField fx:id="txtIng" layoutX="373.0" layoutY="22.0" promptText="Ingredient" />
+            <Button fx:id="btAddIng" layoutX="533.0" layoutY="22.0" mnemonicParsing="false" onAction="#onbtAdd" text="Add" />
+            <TextField fx:id="txtCat" layoutX="238.0" layoutY="61.0" promptText="Category" />
+            <Button fx:id="btAddCat" layoutX="400.0" layoutY="61.0" mnemonicParsing="false" onAction="#onbtAdd" text="Add" />
+            <TextField fx:id="txtUnit" layoutX="300.0" layoutY="22.0" prefHeight="25.0" prefWidth="63.0" promptText="Unit" />
+            <TextField fx:id="txtN" layoutX="238.0" layoutY="22.0" prefHeight="25.0" prefWidth="52.0" promptText="N°" />
+            <Button fx:id="btCreate" layoutX="307.0" layoutY="140.0" mnemonicParsing="false" onAction="#onbtCreateAction" prefHeight="139.0" prefWidth="223.0" text="Create" />
          </children>
       </Pane>
    </children>
