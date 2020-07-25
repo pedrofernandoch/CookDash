@@ -185,7 +185,7 @@ public class SearchRecipeViewController implements Initializable {
 						
 						match = ((float)counter/ing.size()) * 100;
 						
-						rec.add(new Recipe(new Button("View"),name,cats,new ArrayList<RecipeIngredient>(ing),directions,prepTime,match,serv,index));
+						rec.add(new Recipe(new Button("View"),name,new ArrayList<Category>(cats),new ArrayList<RecipeIngredient>(ing),directions,prepTime,match,serv,index));
 						index++;
 						ing.clear();
 					}
@@ -196,6 +196,7 @@ public class SearchRecipeViewController implements Initializable {
 				
 				obsListRecipe = FXCollections.observableArrayList(new ArrayList<Recipe>(rec));
 				rec.clear();
+				cats.clear();
  
 				ScrollPane scene = null;
 				try {
