@@ -35,7 +35,7 @@ public class FavoritesViewController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		//initializeNodes();
-		back.setDisable(true);
+		//back.setDisable(true);
 	}
 	
 	/*public static void loadRecipe() {

@@ -48,12 +48,14 @@ public class MainViewController {
 	
 	private synchronized void loadView(String absoluteName) {
 		try {
+			System.out.println("ENTROU");
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+			System.out.println("PASSOU 1");
 			VBox newVBox = loader.load();
-			
+			System.out.println("PASSOU 2");
 			Scene mainScene = SplashViewController.getMainScene();
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
-			
+			System.out.println("PASSOU 3");
 			Node logo = mainVBox.getChildren().get(0);
 			Node mainMenu = mainVBox.getChildren().get(1);
 			mainVBox.getChildren().clear();
