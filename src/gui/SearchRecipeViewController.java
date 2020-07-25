@@ -120,12 +120,38 @@ public class SearchRecipeViewController implements Initializable {
 				try {
 					conn = SQLiteConnection.getConnection();
 					st = conn.createStatement();
-					
 					resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients"
 			                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
 			                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
 			                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
 			                + ";");
+					if (cbVegano.isSelected() && cbDiabeitco.isSelected()) {
+						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
+				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
+				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
+				                + "	AND Recipe_Categories.recipe_id = Recipes.id"
+				                + "	AND Recipe_Categories.category_id in (1, 2)"
+				                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
+				                + ";");
+					}
+					else if (cbVegano.isSelected()) {
+						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
+				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
+				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
+				                + "	AND Recipe_Categories.recipe_id = Recipes.id"
+				                + "	AND Recipe_Categories.category_id = 1"
+				                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
+				                + ";");
+					}
+					else if (cbDiabeitco.isSelected()) {
+						resultSet = st.executeQuery("SELECT DISTINCT Recipes.* FROM  Recipes, Recipe_Ingredients, Ingredients, Recipe_Categories"
+				                + "	WHERE Recipe_Ingredients.recipe_id = Recipes.id\n"
+				                + "	AND Recipe_Ingredients.ingredient_id = Ingredients.id"
+				                + "	AND Recipe_Categories.recipe_id = Recipes.id"
+				                + "	AND Recipe_Categories.category_id = 2"
+				                + "	AND UPPER(Ingredients.name) in (" + ingredientsString + ")\n"
+				                + ";");
+					}
 				
 				} catch (SQLException e) {
 					e.printStackTrace();
